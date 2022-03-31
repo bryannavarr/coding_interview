@@ -1,3 +1,13 @@
+# How To Run This Program
+
+node findAvailableTimes <List of names separated by comma>
+
+## to find availability for all users
+
+node findAvailableTimes all
+
+=====================================
+
 # Background
 
 Most calendar applications provide some kind of "meet with" feature where the user
@@ -11,11 +21,11 @@ For example, say that we want to schedule a meeting with Jane, John, and Mary on
 - Mary is busy from 3:30pm - 5pm.
 
 Based on that information, our calendar app should tell us that everyone is available:
+
 - 11:00am - 12:00pm
 - 1pm - 3pm
 
 We can then schedule a meeting during any of those available times.
-
 
 # Instructions
 
@@ -42,12 +52,10 @@ and would output something like this:
 2021-07-07 16:00 - 16:15
 ```
 
-
 For the purposes of this exercise, you should restrict your search between `2021-07-05` and `2021-07-07`,
 which are the three days covered in the `events.json` file. You can also assume working hours between
 `13:00` and `21:00` UTC, which is 9-5 Eastern (don't worry about any time zone conversion, just work in
 UTC). Optionally, you could make your program support configured working hours, but this is not necessary.
-
 
 ## Data files
 
@@ -71,7 +79,6 @@ A dataset of all events on the calendars of all our users.
 `start_time`: The time the event begins
 
 `end_time`: The time the event ends
-
 
 # Notes
 
