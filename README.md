@@ -1,5 +1,7 @@
 # How To Run This Program
 
+### Node version 12.18.0
+
 node findAvailableTimes <List of names separated by comma>
 
 ## to find availability for all users
