@@ -8,12 +8,13 @@ const parseDate = (date) => date.slice(0, 10);
 const parseTime = (date) => date.slice(11);
 
 /**
- * @function filterUsersAndEvents | takes node arguments and filters users and their respective events
+ * @function filterUsersAndEvents | takes node arguments and filters, sorts users and their respective events
  *@param {array} | array of names arguments or 'all'
  */
 
 const filterUsersAndEvents = (namesList) => {
   let targetUsers;
+
   if (namesList[0] !== "all") {
     namesList = namesList[0].split(",");
     targetUsers = users.filter((value) => namesList.indexOf(value.name) !== -1);
@@ -35,7 +36,7 @@ const filterUsersAndEvents = (namesList) => {
 
 /**
  * @function organizeByDay | takes @param sortedEvents creates a 2d array to separate events by day
- *@param {array} | array of sorted events in ascending order from events.json
+ *@param {array} | array of sorted events in ascending order
  */
 
 const organizeByDay = (sortedEvents) => {
@@ -124,6 +125,10 @@ const printFreeTimes = (openTimes) => {
 
 findAvailableTimesAmongUsers = () => {
   let namesList = process.argv.slice(2);
+  if (namesList.length == 0) {
+    console.log("Please enter names, separated by comma with no spaces.");
+    return false;
+  }
   const events = filterUsersAndEvents(namesList);
   const openTimeSlots = events.map((eventsByDay) =>
     findAvailableTimes(eventsByDay)
